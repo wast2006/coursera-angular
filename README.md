@@ -1,2 +1,2 @@
-# coursera-test
-Test repo for coursera
+# coursera-angular
+Coursera AngularJS repo
