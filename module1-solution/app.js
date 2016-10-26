@@ -2,8 +2,10 @@
 'use strict';
 
 angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckController);
 
-.controller('LunchCheckController', function ($scope) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
   $scope.menuItems = "";
   $scope.message = "";
 
@@ -30,7 +32,10 @@ angular.module('LunchCheck', [])
     return arrayOfStrings.length;
   }
 
-});
+};
 
 
 })();
+
+
+//!function(){"use strict";function e(e){function n(e){var n=e.split(",");return n.length}e.menuItems="",e.message="",e.check=function(){if(""==e.menuItems)return void(e.message="Please enter data first!");var t=n(e.menuItems);3>=t?e.message="Enjoy!":e.message="Too much!"},e.clear=function(){e.message=""}}angular.module("LunchCheck",[]).controller("LunchCheckController",e),e.$inject=["$scope"]}();
