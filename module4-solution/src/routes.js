@@ -12,15 +12,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('home', {
     url: '/',
-    templateUrl: 'src/components/home/home.template.html'
+    templateUrl: 'src/pages/home/home.main.html'
   })
 
   .state('categories', {
     url: '/categories',
-    templateUrl: 'src/components/categories/categories.template.html',
+    templateUrl: 'src/pages/categories/categories.main.html',
     controller: 'CategoriesController as categoriesController',
     resolve: {
-      categoryList: ['MenuDataService', function (MenuDataService) {
+      categories: ['MenuDataService', function (MenuDataService) {
         return MenuDataService.getAllCategories();
       }]
     }
@@ -28,14 +28,13 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
   .state('items', {
     url: '/items/{category}',
-    templateUrl: 'src/components/items/items.template.html',
-    controller: 'ItemsController as itemsController'/*,
+    templateUrl: 'src/pages/items/items.main.html',
+    controller: 'ItemsController as itemsController',
     resolve: {
       items: ['$stateParams','MenuDataService', function ($stateParams, MenuDataService) {
         return MenuDataService.getItemsForCategory($stateParams.category);
       }]
     }
-    */
   });
 }
 
