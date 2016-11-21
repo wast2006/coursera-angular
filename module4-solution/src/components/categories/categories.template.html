@@ -1,8 +1,0 @@
-<div ng-controller='CategoriesController as categoriesController'>
-  <a ui-sref="home">Home</a> &lt; <span>Categories</span>
-
-  <h3>Our Menu Categories</h3>
-  <ul>
-    <li ng-repeat="category in categoriesController.categories"><a ui-sref="items({category: category.short_name})">{{ category.name }}</a></li>
-  </ul>
-</div>
