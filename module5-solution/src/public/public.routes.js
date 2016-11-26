@@ -19,6 +19,28 @@ function routeConfig ($stateProvider) {
       url: '/',
       templateUrl: 'src/public/home/home.html'
     })
+    .state('public.signup', {
+      url: '/signup',
+      templateUrl: 'src/public/user/signup.html',
+      controller: 'SignUpController',
+      controllerAs: 'signUpController',
+      resolve: {
+        myInfo: ['UserService', function (UserService) {
+          return UserService.getMyInfo();
+        }]
+      }
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/user/myinfo.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myInfoController',
+      resolve: {
+        myInfo: ['UserService', function (UserService) {
+          return UserService.getMyInfo();
+        }]
+      }
+    })
     .state('public.menu', {
       url: '/menu',
       templateUrl: 'src/public/menu/menu.html',
@@ -42,4 +64,5 @@ function routeConfig ($stateProvider) {
       }
     });
 }
+
 })();

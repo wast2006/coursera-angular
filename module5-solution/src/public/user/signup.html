@@ -1,0 +1,59 @@
+<div class="container" >
+  <h2 class="text-center">Sign Up</h2>
+
+  <fieldset>
+    <form name='signUpForm' novalidate>
+      First Name: 
+      <input type="text" name="firstName" ng-model="signUpController.myInfo.firstName" class="form-control"
+        required minlength="4" ng-maxlength="10" ng-keyup="clearMessage();"/>
+      <span ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched">
+        First name must be at least 4 characters long
+      </span>
+      <span ng-if="signUpForm.firstName.$error.maxlength && signUpForm.firstName.$touched">
+        First name must not be longer than 10 characters
+      </span>
+      <br/>
+      <br/>
+
+      Last Name: 
+      <input type="text" name="lastName" ng-model="signUpController.myInfo.lastName" class="form-control"
+        required minlength="4" ng-maxlength="10" ng-keyup="signUpController.clearMessage();"/>
+      <span ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched">
+        Last name must be at least 4 characters long
+      </span>
+      <span ng-if="signUpForm.lastName.$error.maxlength && signUpForm.lastName.$touched">
+        Last name must not be longer than 10 characters
+      </span>
+      <br/>
+      <br/>
+
+      e-Mail Address: 
+      <input type="email" name="emailAddress" ng-model="signUpController.myInfo.emailAddress" class="form-control"
+        required ng-keyup="signUpController.clearMessage();"/>
+      <span ng-if="signUpForm.emailAddress.$invalid && signUpForm.emailAddress.$touched">
+        Must be a valid e-mail address in handle@domain format
+      </span>
+      <br/>
+      <br/>
+
+      Phone Number: 
+      <input type="text" name="phoneNumber" placeholder="Phone ###-###-####" ng-model="signUpController.myInfo.phoneNumber" class="form-control"
+        pattern="(\d{3})-(\d{3})-(\d{4})" ng-keyup="signUpController.clearMessage();"/>
+      <span ng-if="signUpForm.phoneNumber.$invalid && signUpForm.phoneNumber.$touched">
+        Phone number must be in the format ###-###-####
+      </span>
+      <br/>
+      <br/>
+
+      Favorite Menu Number: 
+      <input type="text" ng-model="signUpController.myInfo.favoriteMenuNumber" class="form-control" 
+        ng-keyup="signUpController.clearMessage(); signUpController.clearMenuNumberMessage();"/>
+      <span>{{signUpController.menuNumberMessage}}</span>
+      <br/>
+      <br/>
+
+      <button class="btn btn-default" ng-disabled="signUpForm.$invalid" ng-click="signUpController.signUp();">Submit</button>
+    </form>
+  </fieldset>
+  <span>{{signUpController.message}}</span>
+</div>

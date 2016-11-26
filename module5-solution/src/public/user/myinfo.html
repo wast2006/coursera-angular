@@ -1,0 +1,27 @@
+<div class="container" >
+  <h2 class="text-center">My Info</h2>
+
+  <div class="row" ng-if="myInfoController.myInfo">
+    <div class="col-md-4 col-sm-12 col-xs-12">
+      First Name: {{myInfoController.myInfo.firstName}}<br/>
+      Last Name: {{myInfoController.myInfo.lastName}}<br/>
+      e-Mail Address: {{myInfoController.myInfo.emailAddress}}<br/>
+      Phone Number: {{myInfoController.myInfo.phoneNumber}}<br/><br/>
+    </div>
+ 
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      Favorite Menu Item:
+      <h3 class="menu-item-title">{{myInfoController.menuItem.name}}</h3>
+      <p class="menu-item-details">{{myInfoController.menuItem.description}}</p>
+    </div>
+    <div class="menu-item-photo col-md-4 col-sm-6 col-xs-12">
+      <div>{{myInfoController.menuItem.short_name}}</div>
+      <img class="img-responsive" width="250" height="150" ng-src="{{myInfoController.menuItem.url}}" alt="{{$myInfoController.menuItem.name}}">
+    </div>
+  </div>
+
+  <div ng-if="!myInfoController.myInfo">
+    Not signed up yet.  
+    <a ui-sref="public.signup">Sign up now!</a>
+  </div>
+</div>

@@ -15,7 +15,6 @@ function MenuService($http, ApiPath) {
     });
   };
 
-
   service.getMenuItems = function (category) {
     var config = {};
     if (category) {
@@ -27,8 +26,13 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getMenuItem = function (menuItem) {
+    return $http.get(ApiPath + '/menu_items/' + menuItem + '.json').then(function (response) {
+      // add the image URL to the result object to avoid exposing the API logic outside of this service
+      response.data.url = ApiPath + '/images/' + response.data.short_name + '.jpg';
+      return response.data;
+    });
+  };
 }
-
-
 
 })();

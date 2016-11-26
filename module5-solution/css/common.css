@@ -18,3 +18,12 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
+a, a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
